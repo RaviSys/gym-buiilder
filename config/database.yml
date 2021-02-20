@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  username: postgres
+  password: 123456
+
+development:
+  <<: *default
+  database: my_gym_development
+
+test:
+  <<: *default
+  database: my_gymtest
+
+production:
+  <<: *default
+  database: my_gym_production
