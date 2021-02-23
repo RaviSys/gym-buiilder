@@ -2,7 +2,8 @@ class Admin::MembersController < AdminController
   before_action :set_member, only: %i[ show edit update destroy ]
 
   def index
-    @members = Member.all
+    @q = Member.ransack(params[:q])
+    @members = @q.result(distinct: true)
   end
 
   def show; end
