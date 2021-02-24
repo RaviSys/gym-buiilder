@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_181700) do
+ActiveRecord::Schema.define(version: 2021_02_24_180434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(version: 2021_02_22_181700) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "member_plans", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean "is_active"
+    t.bigint "member_id", null: false
+    t.bigint "plan_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_member_plans_on_member_id"
+    t.index ["plan_id"], name: "index_member_plans_on_plan_id"
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -52,4 +64,14 @@ ActiveRecord::Schema.define(version: 2021_02_22_181700) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "plans", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.string "duration"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "member_plans", "members"
+  add_foreign_key "member_plans", "plans"
 end

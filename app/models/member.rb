@@ -3,6 +3,9 @@ class Member < ApplicationRecord
   validates :first_name, :last_name, :contact_number, :city, :state, :country, :address, :zipcode, :gender, :date_of_birth, presence: true
   validates :email, presence: true, uniqueness: true
 
+  # Associations
+  has_one :member_plan
+
   # Instance methods
 
   def name
