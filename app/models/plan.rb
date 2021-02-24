@@ -9,4 +9,16 @@ class Plan < ApplicationRecord
   def amount
     "RS. #{price}"
   end
+
+  def monthly?
+    self.name == 'Monthly'
+  end
+
+  def quarterly?
+    self.name == 'Quarterly'
+  end
+
+  def yearly?
+    self.name == 'Yearly'
+  end
 end

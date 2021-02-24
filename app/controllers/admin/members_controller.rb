@@ -16,9 +16,17 @@ class Admin::MembersController < AdminController
 
   def create
     @member = Member.new(member_params)
-
     respond_to do |format|
       if @member.save
+        plan = Plan.find(params[:member][:member_plan])
+        if plan.monthly?
+          member_plan = MemberPlan.new(MemberPlan.monthly_plan.merge(member_id: @member.id, plan_id: plan.id))
+        elsif plan.quarterly?
+          member_plan = MemberPlan.new(MemberPlan.quarterly_plan.merge(member_id: @member.id, plan_id: plan.id))
+        elsif plan.yearly?
+          member_plan = MemberPlan.new(MemberPlan.yearly_plan.merge(member_id: @member.id, plan_id: plan.id))
+        end
+        member_plan.save
         format.html { redirect_to admin_members_path, notice: "Member was successfully created." }
         format.json { render :show, status: :created, location: @member }
       else
