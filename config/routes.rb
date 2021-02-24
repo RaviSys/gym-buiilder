@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :admin do 
     resources :contacts, only: %i[index show destroy]
     resources :members
+    resources :plans
   end
 
   get 'contact-us' => 'static_pages#contact_us'

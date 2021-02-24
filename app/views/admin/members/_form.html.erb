@@ -55,6 +55,11 @@
     <%= form.date_field :date_of_birth, class: 'form-control form-control-lg' %>
   </div>
 
+  <div class="form-group">
+    <%= form.label :select_a_plan %>
+    <%= form.select :member_plan, options_for_select(Plan.all.map {|plan| [plan.name, plan.id]}), {}, {class: 'form-control form-control-lg'} %>
+  </div>
+
   <div class="actions">
     <%= form.submit class: 'btn btn-lg btn-primary' %>
     <%= link_to 'Back', admin_members_path, class: 'btn btn-lg btn-secondary ml-2' %>
