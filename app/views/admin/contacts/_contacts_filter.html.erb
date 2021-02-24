@@ -1,0 +1,39 @@
+<div class="card">
+	<div class="card-body">
+		<div class="card-title">
+			<h3>Search</h3>
+		</div>
+		<%= search_form_for [:admin, @q] do |f| %>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<%= f.label :name %>
+						<%= f.text_field :name_cont, class: "form-control" %>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<%= f.label :email %>
+						<%= f.text_field :email_cont, class: "form-control" %>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<%= f.label :contact_number %>
+						<%= f.text_field :contact_number_cont, class: "form-control" %>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<%= f.label :message %>
+						<%= f.text_field :message_cont, class: "form-control" %>
+					</div>
+				</div>
+			</div>
+			<div class="text-right">
+				<%= f.submit "Search", class: "btn btn-outline-success" %>
+				<%= link_to "Reset", admin_contacts_path, class: "btn btn-outline-success" %>
+			</div>
+		<% end %>
+	</div>
+</div>

@@ -2,7 +2,8 @@ class Admin::ContactsController < AdminController
   before_action :set_contact, only: %i[ show destroy ]
 
   def index
-    @contacts = Contact.all
+    @q = Contact.ransack(params[:q])
+    @contacts = @q.result(distinct: true)
   end
 
   def show; end
