@@ -6,7 +6,7 @@
 </div>
 <div class="container">
   <div class="col-md-8 mx-md-auto mt-5">
-    <%= form_with(model: @contact, local: true) do |form| %>
+    <%= form_with(model: @contact, local: true, id: "contact_form") do |form| %>
       <% if @contact.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
@@ -21,22 +21,22 @@
 
       <div class="form-group">
         <%= form.label :name %>
-        <%= form.text_field :name, class: 'form-control form-control-lg', required: true %>
+        <%= form.text_field :name, class: 'form-control form-control-lg' %>
       </div>
 
       <div class="form-group">
         <%= form.label :email %>
-        <%= form.text_field :email, class: 'form-control form-control-lg', required: true %>
+        <%= form.text_field :email, class: 'form-control form-control-lg' %>
       </div>
 
       <div class="form-group">
         <%= form.label :contact_number %>
-        <%= form.text_field :contact_number, class: 'form-control form-control-lg', required: true %>
+        <%= form.text_field :contact_number, class: 'form-control form-control-lg' %>
       </div>
 
       <div class="form-group">
         <%= form.label :message %>
-        <%= form.text_area :message, class: 'form-control form-control-lg', rows: '6', required: true %>
+        <%= form.text_area :message, class: 'form-control form-control-lg', rows: '6' %>
       </div>
 
       <div class="form-group">
@@ -45,3 +45,48 @@
     <% end %>
   </div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function(){ 
+    $("#contact_form").validate({
+      error: function(label) {
+        $(this).addClass("error");
+      },
+      rules: {
+        'contact[name]': {
+          required: true
+        },
+        'contact[email]': {
+          required: true,
+          email: true
+        },
+        'contact[contact_number]': {
+          required: true,
+          minlength: "10",
+          maxlength: "10"
+        },
+        'contact[message]': {
+          required: true
+        }
+      },
+      message: {
+        'contact[name]': {
+          required: "Please Enter your name."
+        },
+        'contact[email]': {
+          required: "Please enter valid email"
+        },
+        'contact[contact_number]': {
+          required: "Enter a 10 digit number"
+        },
+        'contact[message]': {
+          required: "Message can't be blank."
+        }
+      }
+    });  
+  });  
+</script>
+<style type="text/css">
+  #contact_form label.error {
+    color: red;
+  }  
+</style>
