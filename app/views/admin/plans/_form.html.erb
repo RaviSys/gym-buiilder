@@ -1,7 +1,7 @@
 <%= form_with(model: [:admin, plan], local: true) do |form| %>
   <% if plan.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
+    <div id='error_explanation'>
+      <h2><%= pluralize(plan.errors.count, 'error') %> prohibited this plan from being saved:</h2>
 
       <ul>
         <% plan.errors.full_messages.each do |message| %>
@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+  <div class='form-group'>
     <%= form.label :name %>
     <%= form.text_field :name, class: 'form-control form-control-lg' %>
   </div>
 
-  <div class="form-group">
+  <div class='form-group'>
     <%= form.label :price %>
     <%= form.number_field :price, class: 'form-control form-control-lg' %>
   </div>
 
-  <div class="form-group">
+  <div class='form-group'>
     <%= form.label :duration %>
     <%= form.text_field :duration, class: 'form-control form-control-lg' %>
   </div>
 
-  <div class="form-group">
+  <div class='form-group'>
     <%= form.submit class: 'btn btn-primary btn-lg' %>
     <%= link_to 'Back', admin_plans_path, class: 'btn btn-outline-primary btn-lg' %>
   </div>

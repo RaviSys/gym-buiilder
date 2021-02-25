@@ -18,7 +18,7 @@ class Admin::PlansController < AdminController
 
     respond_to do |format|
       if @plan.save
-        format.html { redirect_to admin_plan_path(@plan), notice: "Plan was successfully created." }
+        format.html { redirect_to admin_plan_path(@plan), notice: 'Plan was successfully created.' }
         format.json { render :show, status: :created, location: @plan }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -30,7 +30,7 @@ class Admin::PlansController < AdminController
   def update
     respond_to do |format|
       if @plan.update(plan_params)
-        format.html { redirect_to admin_plan_path(@plan), notice: "Plan was successfully updated." }
+        format.html { redirect_to admin_plan_path(@plan), notice: 'Plan was successfully updated.' }
         format.json { render :show, status: :ok, location: @plan }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class Admin::PlansController < AdminController
   def destroy
     @plan.destroy
     respond_to do |format|
-      format.html { redirect_to admin_plans_url, notice: "Plan was successfully destroyed." }
+      format.html { redirect_to admin_plans_url, notice: 'Plan was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

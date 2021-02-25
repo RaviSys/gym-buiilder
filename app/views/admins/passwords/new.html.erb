@@ -1,23 +1,23 @@
-<div class="container">
-  <div class="col-md-7 mx-md-auto mt-5">
-    <div class="card shadow">
-      <div class="card-header">
-        <h2 class="card-title text-center">Forgot your password?</h2>
+<div class='container'>
+  <div class='col-md-7 mx-md-auto mt-5'>
+    <div class='card shadow'>
+      <div class='card-header'>
+        <h2 class='card-title text-center'>Forgot your password?</h2>
       </div>
-      <div class="card-body">
+      <div class='card-body'>
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-          <%= render "admins/shared/error_messages", resource: resource %>
+          <%= render 'admins/shared/error_messages', resource: resource %>
 
-          <div class="form-group">
+          <div class='form-group'>
             <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control form-control-lg' %>
+            <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control form-control-lg' %>
           </div>
 
-          <div class="actions">
-            <%= f.submit "Send me reset password instructions", class: 'btn btn-primary btn-lg btn-block' %>
+          <div class='actions'>
+            <%= f.submit 'Send me reset password instructions', class: 'btn btn-primary btn-lg btn-block' %>
           </div>
         <% end %>
-        <%= link_to "Log in", new_session_path(resource_name) %>
+        <%= link_to 'Log in', new_session_path(resource_name) %>
       </div>
     </div>
   </div>

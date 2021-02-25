@@ -1,13 +1,13 @@
-<div class="row mt-5">
-  <div class="col-md-6">
+<div class='row mt-5'>
+  <div class='col-md-6'>
     <h1>Members</h1>
   </div>
-  <div class="col-md-6">
+  <div class='col-md-6'>
     <%= link_to 'New Member', new_admin_member_path, class: 'btn btn-lg btn-primary float-right' %>
   </div>
 </div>
-<%= render "members_filter" %>
-<table class="table table-bordered mt-2">
+<%= render 'members_filter' %>
+<table class='table table-bordered mt-2'>
   <thead>
     <tr>
       <th>Name</th>
@@ -24,14 +24,14 @@
         <td><%= member.email %></td>
         <td><%= member.gender %></td>
         <td>
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class='dropdown'>
+            <button class='btn btn-primary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
               Actions
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <%= link_to 'Show', admin_member_path(member), class: "dropdown-item", data: { toggle: 'modal', target: '#memberDetailModal', remote: true } %>
-              <%= link_to 'Edit', edit_admin_member_path(member), class: "dropdown-item" %>
-              <%= link_to 'Destroy', admin_member_path(member), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item" %>
+            <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+              <%= link_to 'Show', admin_member_path(member), class: 'dropdown-item', data: { toggle: 'modal', target: '#memberDetailModal', remote: true } %>
+              <%= link_to 'Edit', edit_admin_member_path(member), class: 'dropdown-item' %>
+              <%= link_to 'Destroy', admin_member_path(member), method: :delete, data: { confirm: 'Are you sure?' }, class: 'dropdown-item' %>
             </div>
           </div>
         </td>
@@ -40,5 +40,5 @@
   </tbody>
 </table>
 
-<div class="modal fade-in" id="memberDetailModal" tabindex="-1" role="dialog" aria-labelledby="memberDetailModalLabel" aria-hidden="true">
+<div class='modal fade-in' id='memberDetailModal' tabindex='-1' role='dialog' aria-labelledby='memberDetailModalLabel' aria-hidden='true'>
 </div>

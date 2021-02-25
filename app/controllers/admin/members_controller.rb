@@ -27,7 +27,7 @@ class Admin::MembersController < AdminController
           member_plan = MemberPlan.new(MemberPlan.yearly_plan.merge(member_id: @member.id, plan_id: plan.id))
         end
         member_plan.save
-        format.html { redirect_to admin_members_path, notice: "Member was successfully created." }
+        format.html { redirect_to admin_members_path, notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class Admin::MembersController < AdminController
   def update
     respond_to do |format|
       if @member.update(member_params)
-        format.html { redirect_to admin_members_path, notice: "Member was successfully updated." }
+        format.html { redirect_to admin_members_path, notice: 'Member was successfully updated.' }
         format.json { render :show, status: :ok, location: @member }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class Admin::MembersController < AdminController
   def destroy
     @member.destroy
     respond_to do |format|
-      format.html { redirect_to admin_members_url, notice: "Member was successfully destroyed." }
+      format.html { redirect_to admin_members_url, notice: 'Member was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
