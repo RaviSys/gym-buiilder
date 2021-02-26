@@ -1,7 +1,7 @@
 $(document).ready(function(){ 
-  $("#contact_form").validate({
+  $('#contact_form').validate({
     error: function(label) {
-      $(this).addClass("error");
+      $(this).addClass('error');
     },
     rules: {
       'contact[name]': {
@@ -15,8 +15,8 @@ $(document).ready(function(){
       'contact[contact_number]': {
         required: true,
         digits: true,
-        minlength: "10",
-        maxlength: "10"
+        minlength: '10',
+        maxlength: '10'
       },
       'contact[message]': {
         required: true
@@ -24,23 +24,23 @@ $(document).ready(function(){
     },
     messages: {
       'contact[name]': {
-        required: "Please Enter your name."
+        required: 'Please Enter your name.'
       },
       'contact[email]': {
-        required: "Please enter a email"
+        required: 'Please enter a email'
       },
       'contact[contact_number]': {
-        required: "Enter a 10 digit number"
+        required: 'Enter a 10 digit number'
       },
       'contact[message]': {
-        required: "Message can't be blank."
+        required: 'Message can\'t be blank.'
       }
     }
   });  
-  $.validator.addMethod("lettersonly", function(value, element, regexpr) {
+  $.validator.addMethod('lettersonly', function(value, element, regexpr) {
     return regexpr.test(value);
-  },"Letters and spaces only please");
-  $.validator.addMethod("email", function(value, element, regexpr) {
+  },'Letters and spaces only please');
+  $.validator.addMethod('email', function(value, element, regexpr) {
     return regexpr.test(value);
-  },"Please enter a valid email"); 
+  },'Please enter a valid email'); 
 });  
