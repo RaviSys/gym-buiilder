@@ -11,4 +11,13 @@ class Member < ApplicationRecord
   def name
     "#{self.first_name} #{self.last_name}".strip
   end
+
+  def self.to_csv(fields = column_names, options = {})
+    CSV.generate(options) do |csv|
+      	csv << fields
+      	all.each do |member|
+        	csv << member.attributes.values_at(*fields)
+      	end
+    end
+  end
 end
