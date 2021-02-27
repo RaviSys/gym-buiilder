@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :contacts
 
   namespace :admin do 
-    resources :contacts, only: %i[index show destroy]
+    resources :contacts, only: %i[index show destroy] do
+      collection { post :import }
+    end
     resources :members
     resources :plans
   end

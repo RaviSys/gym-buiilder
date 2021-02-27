@@ -1,0 +1,9 @@
+<%= form_tag import_admin_contacts_path, multipart: true, class: 'form-inline  float-right m-1' do %>
+  <div class='form-group'>
+    <%= file_field_tag :file %>
+  </div>
+
+  <div class='form-group'>
+    <%= submit_tag 'Import csv', class: 'btn btn-info'  %>
+  </div>
+<% end %>
