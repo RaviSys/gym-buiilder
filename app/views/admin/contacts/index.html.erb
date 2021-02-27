@@ -2,6 +2,9 @@
   <div class="col-md">
     <h1>Contacts</h1>
   </div>
+  <div class="col-md">
+    <%= link_to 'Export CSV', admin_contacts_path(format: :csv), class: 'btn btn-primary float-right mt-2' %>
+  </div>
 </div>
 <%= render "contacts_filter" %>
 <table class="table table-bordered mt-2">

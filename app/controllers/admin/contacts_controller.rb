@@ -4,6 +4,10 @@ class Admin::ContactsController < AdminController
   def index
     @q = Contact.ransack(params[:q])
     @contacts = @q.result(distinct: true)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @contacts.to_csv(['name', 'email', 'contact_number', 'message']) }
+    end
   end
 
   def show; end
