@@ -4,6 +4,7 @@
   </div>
   <div class="col-md-6">
     <%= link_to 'New Member', new_admin_member_path, class: 'btn btn-lg btn-primary float-right' %>
+    <%= render 'importcsv' %>
   </div>
 </div>
 <%= render "members_filter" %>
