@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :contacts
 
   namespace :admin do 
-    get 'dashboard' => 'sites#dashboard'
+    get 'dashboard', to: 'sites#dashboard'
     resources :contacts, only: %i[index show destroy]
     resources :members
   end
