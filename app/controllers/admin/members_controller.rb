@@ -4,6 +4,11 @@ class Admin::MembersController < AdminController
   def index
     @q = Member.ransack(params[:q])
     @members = @q.result(distinct: true)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @members.to_csv(self.exp_csv_fields) }
+    end
   end
 
   def show; end
@@ -65,5 +70,10 @@ class Admin::MembersController < AdminController
     # Only allow a list of trusted parameters through.
     def member_params
       params.require(:member).permit(:first_name, :last_name, :contact_number, :email, :city, :state, :country, :zipcode, :address, :gender, :date_of_birth)
+    end
+
+    #Only allow a column list for export csv
+    def exp_csv_fields
+      (['first_name', 'last_name', 'contact_number', 'email', 'city', 'state', 'country', 'zipcode', 'address', 'gender', 'date_of_birth' ]) 
     end
 end
