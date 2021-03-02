@@ -26,6 +26,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
+        AdminNotificationMailer.new_enquiry_notification(@contact).deliver_now
         format.html { redirect_to @contact, notice: "Contact was successfully created." }
         format.json { render :show, status: :created, location: @contact }
       else
