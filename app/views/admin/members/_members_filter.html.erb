@@ -1,74 +1,74 @@
-<div class="card">
-  <div class="card-body">
-    <div class="card-title">
+<div class='card'>
+  <div class='card-body'>
+    <div class='card-title'>
     	<h4>Search</h4>
     </div>
     <%= search_form_for [:admin, @q] do |f| %>
-    	<div class="row">
-    		<div class="col-md-4">
-    			<div class="form-group">
+    	<div class='row'>
+    		<div class='col-md-4'>
+    			<div class='form-group'>
 	    			<%= f.label :first_name %>
-  	  			<%= f.text_field :first_name_cont, class: "form-control" %>
+  	  			<%= f.text_field :first_name_cont, class: 'form-control' %>
   	  		</div>	
     		</div>
-    		<div class="col-md-4">
-    			<div class="form-group">
+    		<div class='col-md-4'>
+    			<div class='form-group'>
 	    			<%= f.label :last_name %>
-  	  			<%= f.text_field :last_name_cont, class: "form-control" %>
+  	  			<%= f.text_field :last_name_cont, class: 'form-control' %>
   	  		</div>	
     		</div>
-    		<div class="col-md-4">
-    			<div class="form-group">
+    		<div class='col-md-4'>
+    			<div class='form-group'>
 	    			<%= f.label :contact_number %>
-  	  			<%= f.text_field :contact_number_cont, class: "form-control" %>
+  	  			<%= f.text_field :contact_number_cont, class: 'form-control' %>
   	  		</div>	
     		</div>
-    		<div class="col-md-4">
-    			<div class="form-group">
+    		<div class='col-md-4'>
+    			<div class='form-group'>
 	    			<%= f.label :email %>
-  	  			<%= f.text_field :email_cont, class: "form-control" %>
+  	  			<%= f.text_field :email_cont, class: 'form-control' %>
   	  		</div>	
     		</div>
-    		<div class="col-md-4">
-    			<div class="form-group">
+    		<div class='col-md-4'>
+    			<div class='form-group'>
 	    			<%= f.label :city %>
-  	  			<%= f.text_field :city_cont, class: "form-control" %>
+  	  			<%= f.text_field :city_cont, class: 'form-control' %>
   	  		</div>	
     		</div>    	
-    		<div class="col-md-4">
-    			<div class="form-group">
+    		<div class='col-md-4'>
+    			<div class='form-group'>
 	    			<%= f.label :state %>
-  	  			<%= f.text_field :state_cont, class: "form-control" %>
+  	  			<%= f.text_field :state_cont, class: 'form-control' %>
   	  		</div>	
     		</div> 
-    		<div class="col-md-4">
-    			<div class="form-group">
+    		<div class='col-md-4'>
+    			<div class='form-group'>
 	    			<%= f.label :country %>
-  	  			<%= f.text_field :country_cont, class: "form-control" %>
+  	  			<%= f.text_field :country_cont, class: 'form-control' %>
   	  		</div>	
     		</div>
-    		<div class="col-md-4">
-    			<div class="form-group">
+    		<div class='col-md-4'>
+    			<div class='form-group'>
 	    			<%= f.label :zipcode %>
-  	  			<%= f.text_field :zipcode_cont, class: "form-control" %>
+  	  			<%= f.text_field :zipcode_cont, class: 'form-control' %>
   	  		</div>	
     		</div>
-    		<div class="col-md-4">
-    			<div class="form-group">
+    		<div class='col-md-4'>
+    			<div class='form-group'>
 	    			<%= f.label :address %>
-  	  			<%= f.text_field :address_cont, class: "form-control" %>
+  	  			<%= f.text_field :address_cont, class: 'form-control' %>
   	  		</div>	
     		</div>
-    		<div class="col-md-4">
-    			<div class="form-group">
+    		<div class='col-md-4'>
+    			<div class='form-group'>
 	    			<%= f.label :gender %>
-  	  			<%= f.text_field :gender_eq, class: "form-control" %>
+  	  			<%= f.text_field :gender_eq, class: 'form-control' %>
   	  		</div>	
     		</div>    			    		    		    		     		   			    		
     	</div>
-    	<div class="text-right">
-    		<%= f.submit class: "btn btn-outline-success" %>
-    		<%= link_to "Reset", admin_members_path, class: "btn btn-outline-success" %>
+    	<div class='text-right'>
+    		<%= f.submit class: 'btn btn-outline-success' %>
+    		<%= link_to 'Reset', admin_members_path, class: 'btn btn-outline-success' %>
     	</div>	
     <% end %>
   </div>

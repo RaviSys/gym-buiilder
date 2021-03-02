@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :plans
   end
 
-  get 'contact-us' => 'static_pages#contact_us'
-  get 'about-us' => 'static_pages#about_us'
+  get 'contact-us', to: 'static_pages#contact_us'
+  get 'about-us', to: 'static_pages#about_us'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
