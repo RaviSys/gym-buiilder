@@ -15,8 +15,7 @@ class Member < ApplicationRecord
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       member_hash = row.to_hash
-      member = find_or_create_by!(first_name: member_hash['first_name'], last_name: member_hash['last_name'], contact_number: member_hash['contact_number'], email: member_hash['email'], city: member_hash['city'], state: member_hash['state'], country: member_hash['country'], zipcode: member_hash['zipcode'], address: member_hash['address'], gender: member_hash['gender'], date_of_birth: member_hash['date_of_birth'])
-      member.update_attributes(member_hash)
+      member = create(member_hash)
     end
   end
 end

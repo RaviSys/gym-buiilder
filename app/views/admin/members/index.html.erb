@@ -3,8 +3,8 @@
     <h1>Members</h1>
   </div>
   <div class="col-md-6">
+    <%= link_to 'Import csv', '/import-csv', class: 'btn btn-lg btn-danger float-right ml-2' %>
     <%= link_to 'New Member', new_admin_member_path, class: 'btn btn-lg btn-primary float-right' %>
-    <%= render 'importcsv' %>
   </div>
 </div>
 <%= render "members_filter" %>
