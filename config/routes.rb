@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root 'home#index'
-  devise_for :admins
+  devise_for :admins, skip: [:registrations] 
   resources :contacts
 
   namespace :admin do 
+    get 'dashboard', to: 'sites#dashboard'
     resources :contacts, only: %i[index show destroy]
     resources :members
     resources :plans

@@ -3,13 +3,11 @@ class ContactsController < ApplicationController
 
   # GET /contacts or /contacts.json
   def index
-    @q = Contact.ransack(params[:q])
-    @contacts = @q.result(distinct: true)
+    @contacts = Contact.all
   end
 
   # GET /contacts/1 or /contacts/1.json
-  def show
-  end
+  def show; end
 
   # GET /contacts/new
   def new
@@ -17,8 +15,7 @@ class ContactsController < ApplicationController
   end
 
   # GET /contacts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /contacts or /contacts.json
   def create
@@ -26,6 +23,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
+        AdminNotificationMailer.new_enquiry_notification(@contact).deliver_now
         format.html { redirect_to @contact, notice: "Contact was successfully created." }
         format.json { render :show, status: :created, location: @contact }
       else
@@ -39,7 +37,7 @@ class ContactsController < ApplicationController
   def update
     respond_to do |format|
       if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: "Contact was successfully updated." }
+        format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
         format.json { render :show, status: :ok, location: @contact }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +50,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     respond_to do |format|
-      format.html { redirect_to contacts_url, notice: "Contact was successfully destroyed." }
+      format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
