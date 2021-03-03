@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   get 'contact-us' => 'static_pages#contact_us'
   get 'about-us' => 'static_pages#about_us'
+  get 'admin/contacts-csv', to: 'admin/contacts#importCSV'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -3,7 +3,7 @@
     <h1>Contacts</h1>
   </div>
   <div class="col-md">
-    <%= render 'importCSV' %>
+    <%= link_to 'Import CSV', '/admin/contacts-csv', class: 'btn btn-primary btn-lg float-right' %>
   </div>
 </div>
 <%= render "contacts_filter" %>
