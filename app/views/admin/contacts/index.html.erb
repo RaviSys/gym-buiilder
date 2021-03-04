@@ -2,6 +2,9 @@
   <div class="col-md">
     <h1>Contacts</h1>
   </div>
+  <div class="col-md">
+    <%= link_to 'Import CSV', '/admin/contacts-csv', class: 'btn btn-primary btn-lg float-right' %>
+  </div>
 </div>
 <%= render "contacts_filter" %>
 <table class="table table-bordered mt-2">
