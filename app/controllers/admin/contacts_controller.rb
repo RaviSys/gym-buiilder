@@ -6,6 +6,11 @@ class Admin::ContactsController < AdminController
     @contacts = @q.result(distinct: true)
   end
 
+  def import
+    Contact.import(params[:file])
+    redirect_to root_url, notice: 'Contacts imported'
+  end
+
   def show; end
 
   def destroy

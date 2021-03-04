@@ -1,0 +1,19 @@
+<div class='col-md-7 mx-auto mt-2'>
+	<%= form_tag import_admin_contacts_path, multipart: true do %>
+    <div class='card'>
+      <div class='card-body'>
+        <div class='card-title'>
+          <div class='row'>
+            <h3 class='ml-3'>Import CSV file : </h3>
+            <div class='form-group'>
+              <%= file_field_tag :file, class: 'ml-2' %>
+            </div>
+          </div>
+        </div>  
+        <div class='form-group'>
+          <%= submit_tag 'Import csv', class: 'btn btn-info btn-block'  %>
+        </div>
+      </div>
+    </div>
+ 	<% end %>
+</div>
