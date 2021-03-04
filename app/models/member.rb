@@ -11,4 +11,11 @@ class Member < ApplicationRecord
   def name
     "#{self.first_name} #{self.last_name}".strip
   end
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      member_hash = row.to_hash
+      member = create(member_hash)
+    end
+  end
 end

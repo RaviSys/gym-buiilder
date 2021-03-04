@@ -6,6 +6,11 @@ class Admin::MembersController < AdminController
     @members = @q.result(distinct: true)
   end
 
+  def import
+    Member.import(params[:file])
+    redirect_to root_url, notice: 'Member imported'
+  end
+
   def show; end
 
   def new
